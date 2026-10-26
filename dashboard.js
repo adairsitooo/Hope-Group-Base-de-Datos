@@ -1,5 +1,3 @@
-
-
 "use strict";
 
 const { createClient } = window.supabase;
