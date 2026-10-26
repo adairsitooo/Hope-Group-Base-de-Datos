@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -88,7 +87,50 @@
       </header>
 
       <main class="dashboard-main">
+        <section id="dashboardHome" class="dashboard-home" hidden>
+  <div class="page-heading">
+    <div>
+      <p class="page-eyebrow">HOPE GROUP</p>
+      <h1>Panel general</h1>
+      <p>Seleccione una sección para administrar la información.</p>
+    </div>
+  </div>
 
+  <div class="home-grid">
+    <button type="button" class="home-card" data-open-module="cumpleanos">
+      <span class="home-card-number">01</span>
+      <span class="home-card-icon">🎂</span>
+      <span class="home-card-title">Cumpleaños</span>
+      <span class="home-card-description">Administrar cumpleaños del grupo.</span>
+      <span class="home-card-link">Abrir sección →</span>
+    </button>
+
+    <button type="button" class="home-card" data-open-module="reuniones">
+      <span class="home-card-number">02</span>
+      <span class="home-card-icon">📅</span>
+      <span class="home-card-title">Reuniones</span>
+      <span class="home-card-description">Consultar reuniones y predicadores.</span>
+      <span class="home-card-link">Abrir sección →</span>
+    </button>
+
+    <button type="button" class="home-card" data-open-module="eventos">
+      <span class="home-card-number">03</span>
+      <span class="home-card-icon">✦</span>
+      <span class="home-card-title">Eventos</span>
+      <span class="home-card-description">Administrar actividades del grupo.</span>
+      <span class="home-card-link">Abrir sección →</span>
+    </button>
+
+    <button type="button" class="home-card" data-open-module="plannings">
+      <span class="home-card-number">04</span>
+      <span class="home-card-icon">☷</span>
+      <span class="home-card-title">Plannings</span>
+      <span class="home-card-description">Consultar predicadores y fechas.</span>
+      <span class="home-card-link">Abrir sección →</span>
+    </button>
+  </div>
+</section>
+  <div id="moduleView">
         <section class="page-heading">
           <div>
             <p class="page-eyebrow">PANEL DE ADMINISTRACIÓN</p>
@@ -103,6 +145,7 @@
             Exportar PDF
           </button>
         </section>
+   </div> 
 
         <section class="content-card">
           <div class="card-heading">
