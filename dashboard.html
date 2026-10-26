@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,10 +22,17 @@
         </span>
       </a>
 
-      <div class="sidebar-label">GESTIÓN</div>
+      <div class="sidebar-label">MENÚ PRINCIPAL</div>
 
-      <nav class="module-nav" aria-label="Módulos de gestión">
+      <nav class="module-nav" aria-label="Navegación principal">
+
         <button type="button" class="module-button active"
+          data-open-home="true">
+          <span class="nav-icon" aria-hidden="true">⌂</span>
+          <span>Inicio</span>
+        </button>
+
+        <button type="button" class="module-button"
           data-module="cumpleanos">
           <span class="nav-icon" aria-hidden="true">01</span>
           <span>Cumpleaños</span>
@@ -47,6 +55,7 @@
           <span class="nav-icon" aria-hidden="true">04</span>
           <span>Plannings</span>
         </button>
+
       </nav>
 
       <div class="sidebar-bottom">
@@ -72,7 +81,7 @@
         <div class="topbar-section">
           <span class="topbar-label">HOPE GROUP</span>
           <span class="topbar-separator">/</span>
-          <span id="breadcrumbTitle">Cumpleaños</span>
+          <span id="breadcrumbTitle">Inicio</span>
         </div>
 
         <div class="account-area">
@@ -87,110 +96,133 @@
       </header>
 
       <main class="dashboard-main">
-        <section id="dashboardHome" class="dashboard-home" hidden>
-  <div class="page-heading">
-    <div>
-      <p class="page-eyebrow">HOPE GROUP</p>
-      <h1>Panel general</h1>
-      <p>Seleccione una sección para administrar la información.</p>
-    </div>
-  </div>
 
-  <div class="home-grid">
-    <button type="button" class="home-card" data-open-module="cumpleanos">
-      <span class="home-card-number">01</span>
-      <span class="home-card-icon">🎂</span>
-      <span class="home-card-title">Cumpleaños</span>
-      <span class="home-card-description">Administrar cumpleaños del grupo.</span>
-      <span class="home-card-link">Abrir sección →</span>
-    </button>
+        <!-- PANEL GENERAL -->
 
-    <button type="button" class="home-card" data-open-module="reuniones">
-      <span class="home-card-number">02</span>
-      <span class="home-card-icon">📅</span>
-      <span class="home-card-title">Reuniones</span>
-      <span class="home-card-description">Consultar reuniones y predicadores.</span>
-      <span class="home-card-link">Abrir sección →</span>
-    </button>
+        <section id="dashboardHome" class="dashboard-home">
 
-    <button type="button" class="home-card" data-open-module="eventos">
-      <span class="home-card-number">03</span>
-      <span class="home-card-icon">✦</span>
-      <span class="home-card-title">Eventos</span>
-      <span class="home-card-description">Administrar actividades del grupo.</span>
-      <span class="home-card-link">Abrir sección →</span>
-    </button>
-
-    <button type="button" class="home-card" data-open-module="plannings">
-      <span class="home-card-number">04</span>
-      <span class="home-card-icon">☷</span>
-      <span class="home-card-title">Plannings</span>
-      <span class="home-card-description">Consultar predicadores y fechas.</span>
-      <span class="home-card-link">Abrir sección →</span>
-    </button>
-  </div>
-</section>
-  <div id="moduleView">
-        <section class="page-heading">
-          <div>
-            <p class="page-eyebrow">PANEL DE ADMINISTRACIÓN</p>
-            <h1 id="moduleTitle">Cumpleaños</h1>
-            <p id="moduleDescription">
-              Registro de cumpleaños del grupo.
-            </p>
-          </div>
-
-          <button type="button" id="pdfButton" class="pdf-button">
-            <span aria-hidden="true">↓</span>
-            Exportar PDF
-          </button>
-        </section>
-   </div> 
-
-        <section class="content-card">
-          <div class="card-heading">
+          <div class="page-heading">
             <div>
-              <h2>Agregar registro</h2>
-              <p>Complete los campos para guardar información.</p>
+              <p class="page-eyebrow">HOPE GROUP</p>
+              <h1>Panel general</h1>
+              <p>Seleccione una sección para administrar la información.</p>
             </div>
           </div>
 
-          <p id="statusMessage" role="status" aria-live="polite"></p>
+          <div class="home-grid">
 
-          <form id="recordForm">
-            <input type="hidden" id="recordId">
-            <div id="formFields" class="form-fields"></div>
+            <button type="button" class="home-card"
+              data-open-module="cumpleanos">
+              <span class="home-card-number">01</span>
+              <span class="home-card-icon" aria-hidden="true">🎂</span>
+              <span class="home-card-title">Cumpleaños</span>
+              <span class="home-card-description">
+                Administrar cumpleaños del grupo.
+              </span>
+              <span class="home-card-link">Abrir sección →</span>
+            </button>
 
-            <div class="form-actions">
-              <button type="submit" id="saveButton" class="primary-button">
-                Guardar registro
-              </button>
-              <button type="button" id="cancelButton"
-                class="secondary-button" hidden>
-                Cancelar
-              </button>
-            </div>
-          </form>
+            <button type="button" class="home-card"
+              data-open-module="reuniones">
+              <span class="home-card-number">02</span>
+              <span class="home-card-icon" aria-hidden="true">▦</span>
+              <span class="home-card-title">Reuniones</span>
+              <span class="home-card-description">
+                Consultar reuniones y predicadores.
+              </span>
+              <span class="home-card-link">Abrir sección →</span>
+            </button>
+
+            <button type="button" class="home-card"
+              data-open-module="eventos">
+              <span class="home-card-number">03</span>
+              <span class="home-card-icon" aria-hidden="true">✦</span>
+              <span class="home-card-title">Eventos</span>
+              <span class="home-card-description">
+                Administrar actividades del grupo.
+              </span>
+              <span class="home-card-link">Abrir sección →</span>
+            </button>
+
+            <button type="button" class="home-card"
+              data-open-module="plannings">
+              <span class="home-card-number">04</span>
+              <span class="home-card-icon" aria-hidden="true">☷</span>
+              <span class="home-card-title">Plannings</span>
+              <span class="home-card-description">
+                Consultar predicadores y fechas.
+              </span>
+              <span class="home-card-link">Abrir sección →</span>
+            </button>
+
+          </div>
         </section>
 
-        <section class="content-card records-card">
-          <div class="card-heading records-heading">
+        <!-- CONTENIDO DE LOS MÓDULOS -->
+
+        <div id="moduleView" hidden>
+
+          <section class="page-heading">
             <div>
-              <h2>Registros guardados</h2>
-              <p>Consulte y administre la información existente.</p>
+              <p class="page-eyebrow">PANEL DE ADMINISTRACIÓN</p>
+              <h1 id="moduleTitle">Cumpleaños</h1>
+              <p id="moduleDescription">
+                Registro de cumpleaños del grupo.
+              </p>
             </div>
-            <span id="recordCount" class="record-count">0 registros</span>
-          </div>
 
-          <div class="table-container">
-            <table>
-              <thead id="tableHead"></thead>
-              <tbody id="tableBody">
-                <tr><td>Cargando registros...</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+            <button type="button" id="pdfButton" class="pdf-button">
+              <span aria-hidden="true">↓</span>
+              Exportar PDF
+            </button>
+          </section>
+
+          <section class="content-card">
+            <div class="card-heading">
+              <div>
+                <h2>Agregar registro</h2>
+                <p>Complete los campos para guardar información.</p>
+              </div>
+            </div>
+
+            <p id="statusMessage" role="status" aria-live="polite"></p>
+
+            <form id="recordForm">
+              <input type="hidden" id="recordId">
+              <div id="formFields" class="form-fields"></div>
+
+              <div class="form-actions">
+                <button type="submit" id="saveButton" class="primary-button">
+                  Guardar registro
+                </button>
+                <button type="button" id="cancelButton"
+                  class="secondary-button" hidden>
+                  Cancelar
+                </button>
+              </div>
+            </form>
+          </section>
+
+          <section class="content-card records-card">
+            <div class="card-heading records-heading">
+              <div>
+                <h2>Registros guardados</h2>
+                <p>Consulte y administre la información existente.</p>
+              </div>
+              <span id="recordCount" class="record-count">0 registros</span>
+            </div>
+
+            <div class="table-container">
+              <table>
+                <thead id="tableHead"></thead>
+                <tbody id="tableBody">
+                  <tr><td>Cargando registros...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
 
         <footer class="dashboard-footer">
           <span>Hope Database</span>
@@ -208,7 +240,9 @@
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
   <script src="dashboard.js"></script>
+
 </body>
 </html>
+
 
 
