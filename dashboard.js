@@ -24,10 +24,20 @@ const MODULES = {
     description: "Registro de predicadores, temas y fechas.",
     table: "reuniones",
     fields: [
-      { key: "predicador", label: "Predicador", type: "text" },
-      { key: "tema", label: "Tema", type: "text" },
-      { key: "fecha", label: "Fecha", type: "date" }
-    ]
+  { key: "predicador", label: "Predicador", type: "text" },
+  { key: "tema", label: "Tema", type: "text" },
+  { key: "fecha", label: "Fecha", type: "date" },
+  {
+    key: "asistentes_ovejas",
+    label: "Ovejas que asistieron",
+    type: "number"
+  },
+  {
+    key: "asistentes_equipo",
+    label: "Equipo que asistió",
+    type: "number"
+  }
+]
   },
   eventos: {
     title: "Eventos",
@@ -43,9 +53,14 @@ const MODULES = {
     description: "Registro de predicadores y fechas.",
     table: "plannings",
     fields: [
-      { key: "predicador", label: "Predicador", type: "text" },
-      { key: "fecha", label: "Fecha", type: "date" }
-    ]
+  { key: "predicador", label: "Predicador", type: "text" },
+  { key: "fecha", label: "Fecha", type: "date" },
+  {
+    key: "asistentes_total",
+    label: "Personas que asistieron",
+    type: "number"
+  }
+]
   }
 };
 
