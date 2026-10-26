@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Hope Database</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-container">
+    <section class="login-card">
+      <div class="logo">H</div>
+      <p class="eyebrow">HOPE GROUP</p>
+      <h1>Hope Database</h1>
+      <p class="subtitle">Sistema de gestión</p>
+
+      <form id="loginForm">
+        <label for="email">Correo electrónico</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="correo@ejemplo.com"
+          autocomplete="username"
+          required
+        >
+
+        <label for="password">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Ingrese su contraseña"
+          autocomplete="current-password"
+          required
+        >
+
+        <button id="loginButton" type="submit">
+          Iniciar sesión
+        </button>
+
+        <p id="message" role="status" aria-live="polite"></p>
+      </form>
+
+      <footer>
+        Acceso exclusivo para líderes autorizados
+      </footer>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
