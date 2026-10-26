@@ -243,6 +243,10 @@ function selectModule(moduleName) {
 
   currentModule = moduleName;
 
+  $("dashboardHome").hidden = true;
+  $("moduleView").hidden = false;
+  $("breadcrumbTitle").textContent = MODULES[moduleName].title;
+
   document.querySelectorAll(".module-button").forEach((button) => {
     const selected = button.dataset.module === moduleName;
 
@@ -258,6 +262,21 @@ function selectModule(moduleName) {
   resetForm();
   renderForm();
   loadRecords();
+}
+
+function selectHome() {
+  $("dashboardHome").hidden = false;
+  $("moduleView").hidden = true;
+  $("breadcrumbTitle").textContent = "Inicio";
+
+  document.querySelectorAll(".module-button").forEach((button) => {
+    const selected = button.dataset.openHome === "true";
+
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-current", selected ? "page" : "false");
+  });
+
+  closeMobileMenu();
 }
 
 /* MENÚ MÓVIL */
@@ -299,8 +318,19 @@ document.addEventListener("keydown", (event) => {
 
 document.querySelectorAll(".module-button").forEach((button) => {
   button.addEventListener("click", () => {
+    if (button.dataset.openHome === "true") {
+      selectHome();
+      return;
+    }
+
     selectModule(button.dataset.module);
     closeMobileMenu();
+  });
+});
+
+document.querySelectorAll("[data-open-module]").forEach((button) => {
+  button.addEventListener("click", () => {
+    selectModule(button.dataset.openModule);
   });
 });
 
@@ -514,8 +544,7 @@ async function startDashboard() {
     const authorized = await checkAccess();
     if (!authorized) return;
 
-    renderForm();
-    await loadRecords();
+    selectHome();
   } catch (error) {
     showMessage("Error al iniciar el panel: " + error.message, true);
   }
