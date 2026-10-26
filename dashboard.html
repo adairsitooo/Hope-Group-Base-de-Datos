@@ -1,1 +1,103 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Sistema de gestión de Hope Group">
+  <title>Panel | Hope Database</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+  <header class="dashboard-header">
+    <a href="dashboard.html" class="brand">
+      <img src="recursos/logo.PNG" alt="Logo de Hope Group">
+      <span>
+        <strong>Hope Database</strong>
+        <small>Panel de gestión</small>
+      </span>
+    </a>
+
+    <div class="header-actions">
+      <span id="userName">Cargando usuario...</span>
+      <button id="logoutButton" type="button" class="button-secondary">
+        Cerrar sesión
+      </button>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <section class="welcome-section">
+      <p class="eyebrow">HOPE GROUP</p>
+      <h1>Panel de gestión</h1>
+      <p>Administre la información del grupo desde un solo lugar.</p>
+    </section>
+
+    <nav class="module-nav" aria-label="Módulos de gestión">
+      <button type="button" class="module-button active"
+        data-module="cumpleanos">Cumpleaños</button>
+      <button type="button" class="module-button"
+        data-module="reuniones">Reuniones</button>
+      <button type="button" class="module-button"
+        data-module="eventos">Eventos</button>
+      <button type="button" class="module-button"
+        data-module="plannings">Plannings</button>
+    </nav>
+
+    <section class="data-card">
+      <div class="section-heading">
+        <div>
+          <h2 id="moduleTitle">Cumpleaños</h2>
+          <p id="moduleDescription">Registro de cumpleaños del grupo.</p>
+        </div>
+        <button type="button" id="pdfButton">
+          Descargar PDF
+        </button>
+      </div>
+
+      <p id="statusMessage" role="status" aria-live="polite"></p>
+
+      <form id="recordForm">
+        <input type="hidden" id="recordId">
+
+        <div id="formFields" class="form-fields"></div>
+
+        <div class="form-actions">
+          <button type="submit" id="saveButton">Guardar registro</button>
+          <button type="button" id="cancelButton"
+            class="button-secondary" hidden>
+            Cancelar edición
+          </button>
+        </div>
+      </form>
+
+      <div class="table-heading">
+        <h3>Registros guardados</h3>
+        <span id="recordCount">0 registros</span>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody">
+            <tr>
+              <td>Cargando registros...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="dashboard-footer">
+      Hope Group · Hope Database
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
+
