@@ -511,6 +511,49 @@ showMessage(“No se pudo generar el PDF: “ + error.message, true);
 });
 
 /* =====================================================
+   MENÚ MÓVIL: TRES BARRAS
+   ===================================================== */
+
+const menuToggle = $("menuToggle");
+const sidebarOverlay = $("sidebarOverlay");
+
+function closeMobileMenu() {
+  document.body.classList.remove("menu-open");
+
+  if (menuToggle) {
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Abrir menú");
+  }
+}
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = !document.body.classList.contains("menu-open");
+
+    document.body.classList.toggle("menu-open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Cerrar menú" : "Abrir menú"
+    );
+  });
+}
+
+if (sidebarOverlay) {
+  sidebarOverlay.addEventListener("click", closeMobileMenu);
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeMobileMenu();
+  }
+});
+
+document.querySelectorAll(".module-button").forEach((button) => {
+  button.addEventListener("click", closeMobileMenu);
+});
+
+/* =====================================================
 INICIAR PANEL
 ===================================================== */
 
